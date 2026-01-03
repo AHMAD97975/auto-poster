@@ -12,6 +12,8 @@ View your app in AI Studio: https://ai.studio/apps/drive/1YwHuGuyA9P-qgqyMRxnW08
 
 **Prerequisites:**  Node.js (version 16 or higher)
 
+> 📖 **Detailed Setup Guide:** See [SETUP.md](SETUP.md) for comprehensive setup instructions, troubleshooting, and best practices.
+
 ### Quick Setup (Recommended)
 
 Run the automated setup script:
