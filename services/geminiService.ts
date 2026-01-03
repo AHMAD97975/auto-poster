@@ -1,13 +1,18 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Post, ReferenceImageType } from "../types";
 
-// Lazy initialization of Gemini Client
+// Lazy initialization of Gemini Client with singleton pattern
+let aiInstance: GoogleGenAI | null = null;
+
 const getAI = () => {
-  const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error("API Key is required. Please set GEMINI_API_KEY in your environment.");
+  if (!aiInstance) {
+    const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error("API Key is required. Please set API_KEY or GEMINI_API_KEY in your environment.");
+    }
+    aiInstance = new GoogleGenAI({ apiKey });
   }
-  return new GoogleGenAI({ apiKey });
+  return aiInstance;
 };
 
 export const generateCampaignContent = async (
