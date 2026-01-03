@@ -12,7 +12,19 @@ View your app in AI Studio: https://ai.studio/apps/drive/1YwHuGuyA9P-qgqyMRxnW08
 
 **Prerequisites:**  Node.js (version 16 or higher)
 
-### Setup Instructions
+### Quick Setup (Recommended)
+
+Run the automated setup script:
+```bash
+bash setup.sh
+```
+
+This will:
+- Install all dependencies
+- Create your `.env.local` file from the template
+- Guide you through the API key setup
+
+### Manual Setup Instructions
 
 1. **Install dependencies:**
    ```bash
@@ -45,3 +57,19 @@ View your app in AI Studio: https://ai.studio/apps/drive/1YwHuGuyA9P-qgqyMRxnW08
 - `GEMINI_API_KEY` - Your Google Gemini API key (required)
   - Get it from: https://aistudio.google.com/apikey
   - Used for AI content generation and image creation
+
+### Troubleshooting
+
+**Issue: "Failed to generate campaign content"**
+- Make sure your `GEMINI_API_KEY` is correctly set in `.env.local`
+- Verify your API key is valid at https://aistudio.google.com/apikey
+- Check that you have quota remaining on your Gemini API account
+
+**Issue: Environment variables not loading**
+- Ensure the file is named exactly `.env.local` (not `.env.local.txt`)
+- Restart the development server after changing environment variables
+- Make sure you're in the correct directory when running `npm run dev`
+
+**Windows Users:**
+- Use `setup.bat` instead of `setup.sh`
+- Or manually copy `.env.example` to `.env.local` using File Explorer
