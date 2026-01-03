@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { AuthForm } from './components/AuthForm';
 import { CampaignCard } from './components/CampaignCard';
 import { Button } from './components/Button';
@@ -169,7 +170,7 @@ const App: React.FC = () => {
   };
 
   const handleDeleteCampaign = (id: string) => {
-      if (window.confirm("هل أنت متأكد من حذف هذه الحملة؟ لا يمكن التراجع عن هذا الإجراء.")) {
+      if (window.confirm("هل أنت متأكد من حذف هذه الحملة؟ لا يم��ن التراجع عن هذا الإجراء.")) {
           const updatedCampaigns = campaigns.filter(c => c.id !== id);
           setCampaigns(updatedCampaigns);
           if (selectedCampaign?.id === id) {
@@ -605,6 +606,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+      <Analytics />
     </div>
   );
 };
