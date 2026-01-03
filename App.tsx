@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { AuthForm } from './components/AuthForm';
 import { CampaignCard } from './components/CampaignCard';
 import { Button } from './components/Button';
@@ -83,7 +84,7 @@ const AUDIENCE_PRESETS = [
     'المسوقين وصناع المحتوى',
     'المبرمجين وعشاق التقنية',
     'الرياضيين والمهتمين بالصحة',
-    'المستثمرين والمتداولين',
+    '��لمستثمرين والمتداولين',
     'محبي السفر والمغامرات',
     'عشاق الطهي والطعام',
     'المصممين والفنانين',
@@ -319,6 +320,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <Analytics />
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
