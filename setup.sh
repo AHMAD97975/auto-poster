@@ -7,6 +7,23 @@ echo "🚀 Auto Poster Hub - Environment Setup"
 echo "======================================"
 echo ""
 
+# Check if we're in the correct project directory
+if [ ! -f "package.json" ]; then
+    echo "❌ Error: package.json not found!"
+    echo "   Please run this script from the root directory of the Auto Poster Hub project."
+    exit 1
+fi
+
+# Verify this is the correct project
+if ! grep -q "auto-poster-hub" package.json; then
+    echo "⚠️  Warning: This doesn't appear to be the Auto Poster Hub project."
+    read -p "Continue anyway? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
+fi
+
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
     echo "❌ Node.js is not installed. Please install Node.js 16 or higher."

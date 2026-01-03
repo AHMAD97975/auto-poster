@@ -15,8 +15,8 @@ This guide will help you set up the Auto Poster Hub application with the require
 1. Visit [Google AI Studio](https://aistudio.google.com/apikey)
 2. Sign in with your Google account
 3. Click "Create API Key" or "Get API Key"
-4. Copy the generated API key (it will look something like: `AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
-5. Keep this key secure and don't share it publicly
+4. Copy the generated API key (keep it secure!)
+5. Keep this key private and don't share it publicly
 
 ### 2. Install and Configure
 

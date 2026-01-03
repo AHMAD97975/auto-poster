@@ -7,6 +7,23 @@ echo 🚀 Auto Poster Hub - Environment Setup
 echo ======================================
 echo.
 
+REM Check if we're in the correct project directory
+if not exist package.json (
+    echo ❌ Error: package.json not found!
+    echo    Please run this script from the root directory of the Auto Poster Hub project.
+    exit /b 1
+)
+
+REM Verify this is the correct project
+findstr /C:"auto-poster-hub" package.json >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo ⚠️  Warning: This doesn't appear to be the Auto Poster Hub project.
+    set /p CONTINUE="Continue anyway? (y/N): "
+    if /i not "%CONTINUE%"=="y" (
+        exit /b 1
+    )
+)
+
 REM Check if Node.js is installed
 where node >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (
@@ -44,7 +61,11 @@ echo.
 REM Setup environment file
 if not exist .env.local (
     echo 📝 Creating .env.local file...
-    copy .env.example .env.local >nul
+    copy .env.example .env.local >nul 2>&1
+    if %ERRORLEVEL% NEQ 0 (
+        echo ❌ Failed to create .env.local file
+        exit /b 1
+    )
     echo ✅ .env.local file created
     echo.
     echo ⚠️  IMPORTANT: You need to add your Gemini API key!
